@@ -7,18 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C23EF1332A4FE266001CDC78 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23EF1322A4FE266001CDC78 /* SheetView.swift */; };
+		C263FAE62A4B99F100E3650F /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263FAE52A4B99F100E3650F /* Onboarding.swift */; };
+		C263FAED2A4BD46000E3650F /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263FAEC2A4BD46000E3650F /* ToDo.swift */; };
+		C263FAF02A4BD51F00E3650F /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263FAEF2A4BD51F00E3650F /* GreetingView.swift */; };
+		C263FAF22A4BD97500E3650F /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263FAF12A4BD97500E3650F /* SettingScreen.swift */; };
+		C26457D62A4E4ED500323795 /* MemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26457D52A4E4ED500323795 /* MemesView.swift */; };
 		C2904CBE2A454463000B2554 /* DDRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2904CBD2A454463000B2554 /* DDRApp.swift */; };
 		C2904CC02A454463000B2554 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2904CBF2A454463000B2554 /* ContentView.swift */; };
 		C2904CC22A454463000B2554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2904CC12A454463000B2554 /* Assets.xcassets */; };
 		C2904CC52A454463000B2554 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2904CC42A454463000B2554 /* Preview Assets.xcassets */; };
+		C2A9DCE62A5225270098571C /* LikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A9DCE52A5225270098571C /* LikedView.swift */; };
+		C2EE46922A4F9260001B3CDF /* GetUserName.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EE46912A4F9260001B3CDF /* GetUserName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C23EF1322A4FE266001CDC78 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		C263FAE52A4B99F100E3650F /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		C263FAE72A4BB32C00E3650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C263FAEC2A4BD46000E3650F /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		C263FAEF2A4BD51F00E3650F /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
+		C263FAF12A4BD97500E3650F /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
+		C26457D52A4E4ED500323795 /* MemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemesView.swift; sourceTree = "<group>"; };
 		C2904CBA2A454463000B2554 /* DDR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2904CBD2A454463000B2554 /* DDRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDRApp.swift; sourceTree = "<group>"; };
 		C2904CBF2A454463000B2554 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C2904CC12A454463000B2554 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2904CC42A454463000B2554 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C2A9DCE52A5225270098571C /* LikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedView.swift; sourceTree = "<group>"; };
+		C2EE46912A4F9260001B3CDF /* GetUserName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +49,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C23EF1342A4FE9C7001CDC78 /* BootCampViews */ = {
+			isa = PBXGroup;
+			children = (
+				C23EF1322A4FE266001CDC78 /* SheetView.swift */,
+			);
+			path = BootCampViews;
+			sourceTree = "<group>";
+		};
+		C263FAEE2A4BD50F00E3650F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C263FAEF2A4BD51F00E3650F /* GreetingView.swift */,
+				C263FAF12A4BD97500E3650F /* SettingScreen.swift */,
+				C2A9DCE52A5225270098571C /* LikedView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C26BFE1A2A4A79A40036554D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C2904CBD2A454463000B2554 /* DDRApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		C2904CB12A454463000B2554 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +94,11 @@
 		C2904CBC2A454463000B2554 /* DDR */ = {
 			isa = PBXGroup;
 			children = (
-				C2904CBD2A454463000B2554 /* DDRApp.swift */,
-				C2904CBF2A454463000B2554 /* ContentView.swift */,
+				C23EF1342A4FE9C7001CDC78 /* BootCampViews */,
+				C263FAEE2A4BD50F00E3650F /* Screens */,
+				C263FAE72A4BB32C00E3650F /* Info.plist */,
+				C26BFE1A2A4A79A40036554D /* App */,
+				C2904CCB2A45446E000B2554 /* Views */,
 				C2904CC12A454463000B2554 /* Assets.xcassets */,
 				C2904CC32A454463000B2554 /* Preview Content */,
 			);
@@ -65,6 +111,18 @@
 				C2904CC42A454463000B2554 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C2904CCB2A45446E000B2554 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2904CBF2A454463000B2554 /* ContentView.swift */,
+				C263FAE52A4B99F100E3650F /* Onboarding.swift */,
+				C263FAEC2A4BD46000E3650F /* ToDo.swift */,
+				C26457D52A4E4ED500323795 /* MemesView.swift */,
+				C2EE46912A4F9260001B3CDF /* GetUserName.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +195,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C26457D62A4E4ED500323795 /* MemesView.swift in Sources */,
+				C23EF1332A4FE266001CDC78 /* SheetView.swift in Sources */,
+				C263FAF22A4BD97500E3650F /* SettingScreen.swift in Sources */,
+				C263FAE62A4B99F100E3650F /* Onboarding.swift in Sources */,
+				C2A9DCE62A5225270098571C /* LikedView.swift in Sources */,
 				C2904CC02A454463000B2554 /* ContentView.swift in Sources */,
+				C2EE46922A4F9260001B3CDF /* GetUserName.swift in Sources */,
 				C2904CBE2A454463000B2554 /* DDRApp.swift in Sources */,
+				C263FAF02A4BD51F00E3650F /* GreetingView.swift in Sources */,
+				C263FAED2A4BD46000E3650F /* ToDo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +336,9 @@
 				DEVELOPMENT_TEAM = GV2ZUHR4F2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DDR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -299,9 +365,9 @@
 				DEVELOPMENT_TEAM = GV2ZUHR4F2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DDR/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
