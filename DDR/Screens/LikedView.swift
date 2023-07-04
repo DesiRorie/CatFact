@@ -21,7 +21,49 @@ struct LikedView: View {
                 Spacer().frame(height: 10)
                 
                 List(likedQuotes,id: \.self) { quote in
-                    Text(quote.fact)
+                    HStack{
+                        HStack {
+                            VStack {
+                                Text(quote.fact)
+                            }
+                            Spacer()
+                            
+                            
+                        }
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Button {
+                                    print("You Clicked Me")
+                                } label: {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(.red)
+                                        .offset(x: 15)
+                                }
+                                
+                            }
+                            
+                        }
+
+                    }
+                    
+//                    HStack{
+//                        VStack {
+//                            Text(quote.fact)
+//
+//                        }
+//                        Spacer()
+//
+//                        VStack {Spacer()
+//                            Button {
+//
+//                            } label: {
+//                                Image(systemName: "trash").foregroundColor(.red)
+//                        }
+//                        }
+//
+//                    }
+                    
                     
                 }.preferredColorScheme(.dark)
                 Spacer()
@@ -31,6 +73,7 @@ struct LikedView: View {
             loadLikedQuotes()
         }
     }
+    
     func loadLikedQuotes() {
         do {
             let decoder = JSONDecoder()
