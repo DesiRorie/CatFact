@@ -13,7 +13,10 @@ struct ToDo: View {
     @State private var showFact:Bool = false
     @State private var buttonisAnimating:Bool = true
     @State private var shouldRefresh = false
-    @State var selectedTab:Int = 0
+    @State private var selectedTab:Int = 0
+    
+    
+
     
     
     var body: some View {
@@ -65,34 +68,34 @@ struct ToDo: View {
                                     
                                 }
                             }.padding(20)
-                            VStack{
-                                Spacer()
-                                if buttonisAnimating {
-                                    Button {
-                                        
-                                    } label: {
-                                        Text("Click The Cat For a Fact")
-                                    }.disabled(buttonisAnimating)
-                                        .padding()
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .stroke(Color.white, lineWidth: 2)
-                                        )
-                                } else{
-                                    Button {
-                                        shouldRefresh.toggle()
-                                    } label: {
-                                        Text("Another Fact?")
-                                    }
-                                    .padding()
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8)
-                                        
-                                            .stroke(Color.white, lineWidth: 2)
-                                    )
-                                }
-                                Spacer()
-                            }
+//                            VStack{
+//                                Spacer()
+//                                if buttonisAnimating {
+//                                    Button {
+//                                        
+//                                    } label: {
+//                                        Text("Click The Cat For a Fact")
+//                                    }.disabled(buttonisAnimating)
+//                                        .padding()
+//                                        .overlay(
+//                                            RoundedRectangle(cornerRadius: 8)
+//                                                .stroke(Color.white, lineWidth: 2)
+//                                        )
+//                                } else{
+//                                    Button {
+//                                        shouldRefresh.toggle()
+//                                    } label: {
+//                                        Text("Another Fact?")
+//                                    }
+//                                    .padding()
+//                                    .overlay(
+//                                        RoundedRectangle(cornerRadius: 8)
+//                                        
+//                                            .stroke(Color.white, lineWidth: 2)
+//                                    )
+//                                }
+//                                Spacer()
+//                            }
                             
                             Spacer()
                         }

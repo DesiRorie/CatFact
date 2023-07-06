@@ -35,6 +35,7 @@ struct LikedView: View {
                             HStack{
                                 Button {
                                     print("You Clicked Me")
+                                    deleteQuote(quote)
                                 } label: {
                                     Image(systemName: "trash")
                                         .foregroundColor(.red)
@@ -62,7 +63,7 @@ struct LikedView: View {
 //                        }
 //                        }
 //
-//                    }
+//                    }  
                     
                     
                 }.preferredColorScheme(.dark)
@@ -83,7 +84,34 @@ struct LikedView: View {
             print("Failed to decode liked quotes: \(error)")
         }
     }
+    
+    func deleteQuote(_ quote: Quote) {
+        likedQuotes.removeAll { $0 == quote }
+        saveLikedQuotes()
+        print(likedQuotes)
+    }
+    
+    func saveLikedQuotes() {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(likedQuotes)
+            savedQuotes = data
+        } catch {
+            print("Failed to encode liked quotes: \(error)")
+        }
+    }
 }
+//
+//    func loadLikedQuotes() {
+//        do {
+//            let decoder = JSONDecoder()
+//            let quotes = try decoder.decode([Quote].self, from: savedQuotes)
+//            likedQuotes = quotes
+//        } catch {
+//            print("Failed to decode liked quotes: \(error)")
+//        }
+//    }
+//}
 
 struct LikedView_Previews: PreviewProvider {
     static var previews: some View {

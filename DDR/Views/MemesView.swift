@@ -14,68 +14,131 @@ struct MemesView: View {
     @State private var quotes: Quote?
     @State private var postWasLiked: Bool = false
     @State private var likedQuotes:[Quote] = []
+    @State private var refreshButtonTapped = false
+
+    
     
     var body: some View {
-        ZStack {
-            VStack(){
-                VStack(alignment: .leading )
-                {
-                    Text(quotes?.fact ?? "cats have 4 legs" ) .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    Spacer()
-                }.padding()
-                HStack{
-                    Text("Fact \(quotes?.length ?? 0)")
-                    Spacer()
-                    Image(systemName:postWasLiked ? "heart.fill" : "heart")
-                        .foregroundColor(.red)
-                        .onTapGesture {
-                            postWasLiked = !postWasLiked
-                            likedQuotes.append(quotes ?? Quote(fact: "", length: 0))
-                        saveLikedQuotes()
-                            
+        VStack {
+            ZStack {
+                VStack(){
+                    VStack(alignment: .leading )
+                    {
+                        Text(quotes?.fact ?? "cats have 4 legs" ) .fontWeight(.bold)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }.padding()
+                    HStack{
+                        Text("Fact \(quotes?.length ?? 0)")
+                        Spacer()
                         
-                    }
-                }.padding()
+                        Image(systemName:postWasLiked ? "heart.fill" : "heart")
+                            .foregroundColor(.red)
+                            .onTapGesture {
+//                                postWasLiked = !postWasLiked
+                                
+                                likedQuotes.append(quotes ?? Quote(fact: "", length: 0))
+                                
+                            saveLikedQuotes()
+                                print(likedQuotes)
+                                fetchData()
+                                
+                                
+//                                postWasLiked = !postWasLiked
+                            
+                            }
+                    }.padding()
 
-            
                 
-            }.frame(height: 250)
-                .background(Rectangle()
-                    .fill(Color("CardColor"))
-                    .cornerRadius(5)
-                            
-                            
-                )
-                .frame(width: 400)
-                .task {
-                    await fetchData()
                     
-                }
-            
-            
-        }.onAppear{
-            postWasLiked = false
+                }.frame(height: 250)
+                    .background(Rectangle()
+                        .fill(Color("CardColor"))
+                        .cornerRadius(5)
+                                
+                                
+                    )
+                    .frame(width: 400)
+    //                .task {
+    //                    fetchData()
+    //
+    //                }
+                
+              
+          
+
+            }.onAppear{
+                loadLikedQuotes()
+                postWasLiked = false
+                fetchData()
+        }
+            Spacer()
+            VStack{
+                Button {
+                    fetchData()
+                } label: {
+                    Text("New Fact?")
+                }.padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.white, lineWidth: 2))
+
+            }.foregroundColor(.white)
+            Spacer()
+        }
+        
+    }
+//
+//    func fetchData() async {
+//        guard let url = URL(string: "https://catfact.ninja/fact") else{
+//            print("BAD uRL")
+//            return
+//        }
+//        do{
+//            let (data, response) = try await URLSession.shared.data(from: url)
+//
+//            if let decodedResponse = try? JSONDecoder().decode(Quote.self, from: data){
+//                quotes = decodedResponse
+//                print(response)
+//            }
+//        }
+//        catch{
+//            print(":(")
+//
+//        }
+//    }
+    func loadLikedQuotes() {
+        do {
+            let decoder = JSONDecoder()
+            let quotes = try decoder.decode([Quote].self, from: savedQuotes)
+            likedQuotes = quotes
+        } catch {
+            print("Failed to decode liked quotes: \(error)")
         }
     }
-    
-    func fetchData() async {
-        guard let url = URL(string: "https://catfact.ninja/fact") else{
-            print("BAD uRL")
+    func fetchData() {
+        guard let url = URL(string: "https://catfact.ninja/fact") else {
+            print("BAD URL")
             return
         }
-        do{
-            let (data, response) = try await URLSession.shared.data(from: url)
-            
-            if let decodedResponse = try? JSONDecoder().decode(Quote.self, from: data){
-                quotes = decodedResponse
-                print(response)
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
             }
-        }
-        catch{
-            print(":(")
             
-        }
+            if let data = data {
+                do {
+                    let decodedResponse = try JSONDecoder().decode(Quote.self, from: data)
+                    DispatchQueue.main.async {
+                        quotes = decodedResponse
+                    }
+                } catch {
+                    print("Error decoding response: \(error)")
+                }
+            }
+        }.resume()
     }
     
     func saveLikedQuotes() {
