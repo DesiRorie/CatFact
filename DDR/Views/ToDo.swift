@@ -14,11 +14,6 @@ struct ToDo: View {
     @State private var buttonisAnimating:Bool = true
     @State private var shouldRefresh = false
     @State private var selectedTab:Int = 0
-    
-    
-
-    
-    
     var body: some View {
         
         

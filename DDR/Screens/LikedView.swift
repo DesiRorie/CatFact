@@ -35,11 +35,14 @@ struct LikedView: View {
                             HStack{
                                 Button {
                                     print("You Clicked Me")
-                                    deleteQuote(quote)
+//                                    deleteQuote(quote)
                                 } label: {
                                     Image(systemName: "trash")
                                         .foregroundColor(.red)
                                         .offset(x: 15)
+                                        .onTapGesture {
+                                            deleteQuote(quote)
+                                        }
                                 }
                                 
                             }
@@ -48,25 +51,8 @@ struct LikedView: View {
 
                     }
                     
-//                    HStack{
-//                        VStack {
-//                            Text(quote.fact)
-//
-//                        }
-//                        Spacer()
-//
-//                        VStack {Spacer()
-//                            Button {
-//
-//                            } label: {
-//                                Image(systemName: "trash").foregroundColor(.red)
-//                        }
-//                        }
-//
-//                    }  
-                    
-                    
-                }.preferredColorScheme(.dark)
+                }
+                .preferredColorScheme(.dark)
                 Spacer()
             }
             
