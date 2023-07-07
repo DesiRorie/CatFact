@@ -12,51 +12,105 @@ struct LikedView: View {
     @State private var likedQuotes: [Quote] = []
     var body: some View {
         ZStack{
+            
             Color.black
                 .edgesIgnoringSafeArea(.all)
             VStack{
-                Text("Your Liked Facts")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                Spacer().frame(height: 10)
-                
-                List(likedQuotes,id: \.self) { quote in
-                    HStack{
-                        HStack {
-                            VStack {
-                                Text(quote.fact)
-                            }
-                            Spacer()
-                            
-                            
-                        }
-                        VStack{
-                            Spacer()
-                            HStack{
-                                Button {
-                                    print("You Clicked Me")
-//                                    deleteQuote(quote)
-                                } label: {
-                                    Image(systemName: "trash")
-                                        .foregroundColor(.red)
-                                        .offset(x: 15)
-                                        .onTapGesture {
-                                            deleteQuote(quote)
+//                Text("Your Liked Facts")
+//                    .foregroundColor(.white)
+//                    .font(.largeTitle)
+//                Spacer().frame(height: 10)
+                NavigationView{
+                    List{
+                        Section(header: Text("Liked Facts")
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(.gray)
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        ) {
+                            ForEach(likedQuotes,id: \.self) { quote in
+                                HStack{
+                                    HStack {
+                                        VStack {
+                                            Text(quote.fact)
                                         }
+                                        Spacer()
+                                        
+                                        
+                                    }
+                                    VStack{
+                                        Spacer()
+                                        HStack{
+                                            Button {
+                                                print("You Clicked Me")
+                                                //                                    deleteQuote(quote)
+                                            } label: {
+                                                Image(systemName: "trash")
+                                                    .foregroundColor(.red)
+                                                    .offset(x: 15)
+                                                    .onTapGesture {
+                                                        deleteQuote(quote)
+                                                    }
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
                                 }
                                 
+                            }.onDelete{
+                                deleteQuotes(at: $0)
+                            }
+                            .onMove { IndexSet, Int in
+                                likedQuotes.move(fromOffsets: IndexSet, toOffset: Int)
                             }
                             
+                            
+                            
                         }
-
-                    }
-                    
-                }
-                .preferredColorScheme(.dark)
-                Spacer()
+                    }.navigationBarItems(leading: EditButton().bold().font(.system(size: 25)).foregroundColor(.purple))
+                        .preferredColorScheme(.dark)
+                }.navigationBarItems(leading: EditButton())
+                //                List(likedQuotes,id: \.self) { quote in
+                //                    HStack{
+                //                        HStack {
+                //                            VStack {
+                //                                Text(quote.fact)
+                //                            }
+                //                            Spacer()
+                //
+                //
+                //                        }
+                //                        VStack{
+                //                            Spacer()
+                //                            HStack{
+                //                                Button {
+                //                                    print("You Clicked Me")
+                ////                                    deleteQuote(quote)
+                //                                } label: {
+                //                                    Image(systemName: "trash")
+                //                                        .foregroundColor(.red)
+                //                                        .offset(x: 15)
+                //                                        .onTapGesture {
+                //                                            deleteQuote(quote)
+                //                                        }
+                //                                }
+                //
+                //                            }
+                //
+                //                        }
+                //
+                //                    }
+                //
+                //                }
+                //                .preferredColorScheme(.dark)
+                //                Spacer()
             }
             
-        }.onAppear{
+        }
+        .onAppear{
             loadLikedQuotes()
         }
     }
@@ -75,6 +129,11 @@ struct LikedView: View {
         likedQuotes.removeAll { $0 == quote }
         saveLikedQuotes()
         print(likedQuotes)
+    }
+    
+    func deleteQuotes(at offsets: IndexSet) {
+        likedQuotes.remove(atOffsets: offsets)
+        saveLikedQuotes()
     }
     
     func saveLikedQuotes() {
