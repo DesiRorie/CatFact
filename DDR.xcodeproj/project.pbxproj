@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C23EF1332A4FE266001CDC78 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23EF1322A4FE266001CDC78 /* SheetView.swift */; };
+		C24155A82A588D8A00A269E2 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24155A72A588D8A00A269E2 /* TestingView.swift */; };
+		C24155AC2A590FFC00A269E2 /* SettingsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24155AB2A590FFC00A269E2 /* SettingsMenuView.swift */; };
+		C24155B02A59FB7000A269E2 /* SettingsScreenVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24155AF2A59FB7000A269E2 /* SettingsScreenVIew.swift */; };
 		C263FAE62A4B99F100E3650F /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263FAE52A4B99F100E3650F /* Onboarding.swift */; };
 		C263FAED2A4BD46000E3650F /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263FAEC2A4BD46000E3650F /* ToDo.swift */; };
 		C263FAF02A4BD51F00E3650F /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C263FAEF2A4BD51F00E3650F /* GreetingView.swift */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		C23EF1322A4FE266001CDC78 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		C24155A72A588D8A00A269E2 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		C24155AB2A590FFC00A269E2 /* SettingsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuView.swift; sourceTree = "<group>"; };
+		C24155AF2A59FB7000A269E2 /* SettingsScreenVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenVIew.swift; sourceTree = "<group>"; };
 		C263FAE52A4B99F100E3650F /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		C263FAE72A4BB32C00E3650F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C263FAEC2A4BD46000E3650F /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
@@ -63,6 +69,7 @@
 				C263FAEF2A4BD51F00E3650F /* GreetingView.swift */,
 				C263FAF12A4BD97500E3650F /* SettingScreen.swift */,
 				C2A9DCE52A5225270098571C /* LikedView.swift */,
+				C24155AB2A590FFC00A269E2 /* SettingsMenuView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -121,6 +128,8 @@
 				C263FAEC2A4BD46000E3650F /* ToDo.swift */,
 				C26457D52A4E4ED500323795 /* MemesView.swift */,
 				C2EE46912A4F9260001B3CDF /* GetUserName.swift */,
+				C24155A72A588D8A00A269E2 /* TestingView.swift */,
+				C24155AF2A59FB7000A269E2 /* SettingsScreenVIew.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,10 +207,13 @@
 				C26457D62A4E4ED500323795 /* MemesView.swift in Sources */,
 				C23EF1332A4FE266001CDC78 /* SheetView.swift in Sources */,
 				C263FAF22A4BD97500E3650F /* SettingScreen.swift in Sources */,
+				C24155A82A588D8A00A269E2 /* TestingView.swift in Sources */,
 				C263FAE62A4B99F100E3650F /* Onboarding.swift in Sources */,
 				C2A9DCE62A5225270098571C /* LikedView.swift in Sources */,
+				C24155AC2A590FFC00A269E2 /* SettingsMenuView.swift in Sources */,
 				C2904CC02A454463000B2554 /* ContentView.swift in Sources */,
 				C2EE46922A4F9260001B3CDF /* GetUserName.swift in Sources */,
+				C24155B02A59FB7000A269E2 /* SettingsScreenVIew.swift in Sources */,
 				C2904CBE2A454463000B2554 /* DDRApp.swift in Sources */,
 				C263FAF02A4BD51F00E3650F /* GreetingView.swift in Sources */,
 				C263FAED2A4BD46000E3650F /* ToDo.swift in Sources */,

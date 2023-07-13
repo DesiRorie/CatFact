@@ -12,7 +12,7 @@ struct SettingScreen: View {
         
         HStack{
             ZStack{
-                Circle().fill(.white)
+                Circle().fill(.gray)
                     .frame(width: 50)
                
                 Image(systemName: "gear")

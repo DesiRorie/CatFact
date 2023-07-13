@@ -22,6 +22,7 @@ struct MemesView: View {
         VStack {
             ZStack {
                 VStack(){
+                    
                     VStack(alignment: .leading )
                     {
                         Text(quotes?.fact ?? "cats have 4 legs" ) .fontWeight(.bold)
@@ -59,15 +60,8 @@ struct MemesView: View {
                                 
                     )
                     .frame(width: 400)
-    //                .task {
-    //                    fetchData()
-    //
-    //                }
-                
-              
-          
-
-            }.onAppear{
+            }.shadow(color: .gray, radius: 5, x: 0, y: 0)
+            .onAppear{
                 loadLikedQuotes()
                 postWasLiked = false
                 fetchData()
@@ -77,12 +71,11 @@ struct MemesView: View {
                 Button {
                     fetchData()
                 } label: {
-                    Text("New Fact?")
+                    Text("Another Fact?")
                 }.padding()
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.white, lineWidth: 2))
-
             }.foregroundColor(.white)
             Spacer()
         }

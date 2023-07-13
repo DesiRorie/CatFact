@@ -18,6 +18,7 @@ struct Onboarding: View {
                 Circle()
                     .stroke(lineWidth: 5)
                     .fill(LinearGradient(colors: [.gray ,.black,.gray], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .opacity(isAnimating ? 1 : 0)
                     .frame(width: 400, height: 400)
                     
                 
@@ -26,6 +27,7 @@ struct Onboarding: View {
                     .foregroundColor(.white)
                     .font(.system(size: 200))
                     .opacity(isAnimating ? 1 : 0)
+                    .offset(y: -10)
                     
                 
                 
@@ -33,8 +35,10 @@ struct Onboarding: View {
                 Text("F")
                     .foregroundColor(.white)
                     .font(.system(size: 200))
-                    .offset(x: 20, y: 110)
+                    .offset(x: 20, y: 65)
                     .opacity(isAnimating ? 1 : 0)
+                    
+                    
                 
             }
             .onAppear{

@@ -14,6 +14,8 @@ struct ToDo: View {
     @State private var buttonisAnimating:Bool = true
     @State private var shouldRefresh = false
     @State private var selectedTab:Int = 0
+    @State private var isPresented:Bool = false
+    
     var body: some View {
         
         
@@ -22,19 +24,26 @@ struct ToDo: View {
                 Color.black.ignoresSafeArea()
                 VStack(alignment: .center){
        
-              
-                    
+                 
                     TabView( selection: $selectedTab) {
                         VStack{
                             HStack(spacing: 10){
                                 GreetingView(greeting: "", name:"")
                                 Spacer()
-                                
-                                NavigationLink {
-                                    Onboarding()
+                                Button {
+                                    isPresented.toggle()
                                 } label: {
-                                    SettingScreen()
-                                }//END of greeting
+                                    SettingsMenuView()
+                                }.fullScreenCover(isPresented: $isPresented) {
+                                 SettingsScreenVIew()
+                                    
+                                }
+
+//                                NavigationLink {
+//                                    Onboarding()
+//                                } label: {
+//                                    SettingScreen()
+//                                }//END of greeting
                             }.padding()
                             
                             Spacer()
@@ -50,7 +59,9 @@ struct ToDo: View {
                                     showFact = true
                                 }
                             Spacer()
-                            
+                            HStack{
+                                !isAnimated ? Text("Click The Cat For A Fact" ).padding().overlay(RoundedRectangle(cornerRadius: 5).stroke(lineWidth: 2)) : nil
+                            }
                             
                             VStack(){
                                 if showFact {
@@ -63,35 +74,6 @@ struct ToDo: View {
                                     
                                 }
                             }.padding(20)
-//                            VStack{
-//                                Spacer()
-//                                if buttonisAnimating {
-//                                    Button {
-//                                        
-//                                    } label: {
-//                                        Text("Click The Cat For a Fact")
-//                                    }.disabled(buttonisAnimating)
-//                                        .padding()
-//                                        .overlay(
-//                                            RoundedRectangle(cornerRadius: 8)
-//                                                .stroke(Color.white, lineWidth: 2)
-//                                        )
-//                                } else{
-//                                    Button {
-//                                        shouldRefresh.toggle()
-//                                    } label: {
-//                                        Text("Another Fact?")
-//                                    }
-//                                    .padding()
-//                                    .overlay(
-//                                        RoundedRectangle(cornerRadius: 8)
-//                                        
-//                                            .stroke(Color.white, lineWidth: 2)
-//                                    )
-//                                }
-//                                Spacer()
-//                            }
-                            
                             Spacer()
                         }
                             .tabItem {
@@ -101,16 +83,20 @@ struct ToDo: View {
                             .tag(0)
 
                  
-                        Text("Likes")
+                        
+//                        Text("Likes")
                             LikedView()
                             .tabItem {
                                 Image(systemName: "heart")
                                 Text("Liked")
                             }
                             .tag(1)
+                        
+                        
              
                     }.accentColor(.purple)
                     .preferredColorScheme(.dark)
+                    
                     
                 }// End of the vstack
                 .foregroundColor(.white)

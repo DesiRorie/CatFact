@@ -21,7 +21,7 @@ struct DDRApp: App {
             }
             else {
                 if let firstName = firstName, !firstName.isEmpty {
-                    ContentView()
+                    ContentView().textSelection(.enabled)
                 } else {
                     GetUserName(userFirstName: firstName ?? "")
                 }

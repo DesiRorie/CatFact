@@ -12,23 +12,18 @@ struct LikedView: View {
     @State private var likedQuotes: [Quote] = []
     var body: some View {
         ZStack{
-            
             Color.black
                 .edgesIgnoringSafeArea(.all)
             VStack{
-//                Text("Your Liked Facts")
-//                    .foregroundColor(.white)
-//                    .font(.largeTitle)
-//                Spacer().frame(height: 10)
                 NavigationView{
                     List{
-                        Section(header: Text("Liked Facts")
+                        Section(header: Text("Liked")
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(.gray)
-                            .frame(maxWidth: .infinity, alignment: .center)
-
-                        ) {
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        )
+                        {
                             ForEach(likedQuotes,id: \.self) { quote in
                                 HStack{
                                     HStack {
@@ -39,25 +34,6 @@ struct LikedView: View {
                                         
                                         
                                     }
-                                    VStack{
-                                        Spacer()
-                                        HStack{
-                                            Button {
-                                                print("You Clicked Me")
-                                                //                                    deleteQuote(quote)
-                                            } label: {
-                                                Image(systemName: "trash")
-                                                    .foregroundColor(.red)
-                                                    .offset(x: 15)
-                                                    .onTapGesture {
-                                                        deleteQuote(quote)
-                                                    }
-                                            }
-                                            
-                                        }
-                                        
-                                    }
-                                    
                                 }
                                 
                             }.onDelete{
@@ -70,51 +46,17 @@ struct LikedView: View {
                             
                             
                         }
-                    }.navigationBarItems(leading: EditButton().bold().font(.system(size: 25)).foregroundColor(.purple))
-                        .preferredColorScheme(.dark)
-                }.navigationBarItems(leading: EditButton())
-                //                List(likedQuotes,id: \.self) { quote in
-                //                    HStack{
-                //                        HStack {
-                //                            VStack {
-                //                                Text(quote.fact)
-                //                            }
-                //                            Spacer()
-                //
-                //
-                //                        }
-                //                        VStack{
-                //                            Spacer()
-                //                            HStack{
-                //                                Button {
-                //                                    print("You Clicked Me")
-                ////                                    deleteQuote(quote)
-                //                                } label: {
-                //                                    Image(systemName: "trash")
-                //                                        .foregroundColor(.red)
-                //                                        .offset(x: 15)
-                //                                        .onTapGesture {
-                //                                            deleteQuote(quote)
-                //                                        }
-                //                                }
-                //
-                //                            }
-                //
-                //                        }
-                //
-                //                    }
-                //
-                //                }
-                //                .preferredColorScheme(.dark)
-                //                Spacer()
+                    }
+                    .navigationBarItems(leading: EditButton().bold().font(.system(size: 25)).foregroundColor(.purple))
+                    .preferredColorScheme(.dark)
+                }
+       
             }
-            
         }
         .onAppear{
             loadLikedQuotes()
         }
     }
-    
     func loadLikedQuotes() {
         do {
             let decoder = JSONDecoder()
